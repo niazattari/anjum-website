@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Custom development",
+    "icon": "Boxes",
+    "description": "No recycled templates. The structure and features come from what your business actually needs."
+  },
+  {
+    "id": 2,
+    "title": "Responsive on every device",
+    "icon": "Smartphone",
+    "description": "Tested from 320px phones to wide desktops — no broken layouts, no horizontal scrolling, no unreadable text."
+  },
+  {
+    "id": 3,
+    "title": "Modern, maintainable stack",
+    "icon": "Cpu",
+    "description": "React, Laravel and MySQL. Current tools another developer can pick up and continue without a rewrite."
+  },
+  {
+    "id": 4,
+    "title": "Business-focused",
+    "icon": "Target",
+    "description": "The goal is not a website. It is more enquiries, fewer manual hours, or clearer data — decided before we start."
+  },
+  {
+    "id": 5,
+    "title": "Secure by default",
+    "icon": "Lock",
+    "description": "Validated input, hashed passwords, protected admin routes, CSRF and injection protection as standard."
+  },
+  {
+    "id": 6,
+    "title": "Scalable architecture",
+    "icon": "TrendingUp",
+    "description": "Built so more products, users and features can be added later without starting again."
+  },
+  {
+    "id": 7,
+    "title": "Clear communication",
+    "icon": "MessagesSquare",
+    "description": "Plain-language updates, a written scope, and a fixed quotation before any work begins."
+  },
+  {
+    "id": 8,
+    "title": "Post-launch support",
+    "icon": "Wrench",
+    "description": "Support after handover, plus optional maintenance for updates, backups and improvements."
+  }
+]

@@ -1,0 +1,349 @@
+[
+  {
+    "id": 1,
+    "slug": "when-a-spreadsheet-stops-being-enough",
+    "title": "When a spreadsheet stops being enough",
+    "category": "Business",
+    "readingTime": 6,
+    "date": "2026-02-18",
+    "author": "Your Name",
+    "excerpt": "Spreadsheets scale further than most developers admit — and then they fail suddenly. Here is how to tell which side of that line you are on.",
+    "accent": "#34D399",
+    "tags": [
+      "spreadsheets",
+      "systems",
+      "operations"
+    ],
+    "content": [
+      {
+        "type": "p",
+        "text": "Developers like to say a business has \"outgrown\" its spreadsheet long before it actually has. A well-built sheet is fast, flexible, free and understood by everyone in the office. Replacing one too early wastes money and usually makes the team slower."
+      },
+      {
+        "type": "h2",
+        "text": "The signals that actually matter"
+      },
+      {
+        "type": "p",
+        "text": "The moment to move is not a row count. It is when specific failures start repeating."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Two people edit the same rows and overwrite each other’s work.",
+          "A formula gets deleted and nobody notices for a week.",
+          "You cannot tell who changed a value, or when.",
+          "The same data is re-keyed into a second sheet.",
+          "People need different views but everyone sees everything."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Every one of those is a concurrency, integrity or permissions problem. Spreadsheets have no real answer to any of them, and no amount of colour coding fixes it."
+      },
+      {
+        "type": "h2",
+        "text": "The cheaper middle step"
+      },
+      {
+        "type": "p",
+        "text": "The jump people imagine is spreadsheet to full custom application. There is a step in between that solves most of these problems for a fraction of the cost: keep the sheet as the database and put a real interface on top of it."
+      },
+      {
+        "type": "p",
+        "text": "With Google Apps Script, staff stop editing cells and start using forms. Entries get validated. Access is scoped by role. Every change is logged with a name and a timestamp. The accountant still opens the same sheet they always have."
+      },
+      {
+        "type": "h2",
+        "text": "When to actually build the application"
+      },
+      {
+        "type": "p",
+        "text": "Move to a real database when you need relationships across many record types, more than a handful of concurrent users, sub-second queries over large history, or an audit trail you could defend. Below that, a sheet with a proper interface will serve you well for years."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "what-to-prepare-before-hiring-a-web-developer",
+    "title": "What to prepare before hiring a web developer",
+    "category": "Business",
+    "readingTime": 5,
+    "date": "2026-01-30",
+    "author": "Your Name",
+    "excerpt": "The projects that go smoothly are the ones where the client arrived with five specific things ready. None of them are technical.",
+    "accent": "#3B82F6",
+    "tags": [
+      "hiring",
+      "planning",
+      "requirements"
+    ],
+    "content": [
+      {
+        "type": "p",
+        "text": "Most delays on a web project are not caused by code. They are caused by waiting: for content, for a decision, for someone to say which of three logos is the real one. Arriving prepared can take weeks off a build."
+      },
+      {
+        "type": "h2",
+        "text": "1. Know what the site is for"
+      },
+      {
+        "type": "p",
+        "text": "Not \"we need a website\" — what should change once it exists. More enquiries? Fewer phone calls asking about prices? Orders taken without a marketplace commission? A clear objective settles a hundred smaller design decisions later."
+      },
+      {
+        "type": "h2",
+        "text": "2. Bring your content, or say you need help"
+      },
+      {
+        "type": "p",
+        "text": "Text about your services, real photographs, your logo in a usable format. Content is the single most common cause of a stalled project. If you do not have it, say so at the quotation stage so it can be planned rather than discovered."
+      },
+      {
+        "type": "h2",
+        "text": "3. Collect three sites you like"
+      },
+      {
+        "type": "p",
+        "text": "And, more usefully, say what you like about each one. \"Clean\" means nothing on its own; \"I like how their pricing page answers everything before you contact them\" is a brief."
+      },
+      {
+        "type": "h2",
+        "text": "4. Separate must-have from nice-to-have"
+      },
+      {
+        "type": "p",
+        "text": "A written feature list split into two columns keeps scope honest and gives you a lever if budget gets tight. Everything cannot be essential."
+      },
+      {
+        "type": "h2",
+        "text": "5. Decide who approves"
+      },
+      {
+        "type": "p",
+        "text": "One person with final say. Projects with three decision-makers and no tiebreaker take twice as long and usually end up designed by committee."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "google-apps-script-what-it-can-and-cannot-do",
+    "title": "Google Apps Script: what it can and cannot do",
+    "category": "Google Sheets",
+    "readingTime": 7,
+    "date": "2026-01-12",
+    "author": "Your Name",
+    "excerpt": "An honest look at the limits — quotas, execution time, concurrency — and the kinds of systems that fit comfortably inside them.",
+    "accent": "#22D3EE",
+    "tags": [
+      "apps script",
+      "google sheets",
+      "automation"
+    ],
+    "content": [
+      {
+        "type": "p",
+        "text": "Apps Script is genuinely underrated. It turns a spreadsheet into a multi-user system with a real interface, at a fraction of the cost of a custom application. It is also not a general-purpose application platform, and pretending otherwise leads to systems that fall over at exactly the wrong moment."
+      },
+      {
+        "type": "h2",
+        "text": "What it does well"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Form-driven data entry with validation over an existing sheet.",
+          "Role-based access, so staff see only their own scope.",
+          "Scheduled jobs: daily summaries, reminders, report emails.",
+          "Document generation — invoices, payslips, certificates — as PDFs.",
+          "Integration across Sheets, Drive, Gmail and Calendar without extra infrastructure."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "The real limits"
+      },
+      {
+        "type": "p",
+        "text": "Scripts have execution time limits and daily quotas. A poorly written loop that reads one row at a time will hit them quickly — batching reads and writes is not an optimisation, it is a requirement."
+      },
+      {
+        "type": "p",
+        "text": "Concurrency is the harder constraint. Sheets do not offer row-level locking, so a system where many people write to the same rows simultaneously needs careful design, and past a certain volume needs a real database instead."
+      },
+      {
+        "type": "h2",
+        "text": "A reasonable rule of thumb"
+      },
+      {
+        "type": "p",
+        "text": "Up to roughly a dozen simultaneous users, tens of thousands of rows, and workflows measured in seconds rather than milliseconds, Apps Script is an excellent fit. Beyond that — heavy concurrent writes, large history, sub-second response — build on a proper database."
+      },
+      {
+        "type": "p",
+        "text": "The good news is that migrating later is not wasted work: the data model you designed in Sheets is usually the same one you carry into MySQL."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "why-your-website-is-slow-on-mobile",
+    "title": "Why your website is slow on mobile",
+    "category": "Web development",
+    "readingTime": 6,
+    "date": "2025-12-20",
+    "author": "Your Name",
+    "excerpt": "It is almost always images, fonts and third-party scripts — in that order. A practical checklist you can run yourself.",
+    "accent": "#F59E0B",
+    "tags": [
+      "performance",
+      "core web vitals",
+      "mobile"
+    ],
+    "content": [
+      {
+        "type": "p",
+        "text": "A site that loads instantly on your laptop can take eight seconds on a mid-range phone on mobile data. Most visitors are on that phone, and a good share of them leave before the page appears."
+      },
+      {
+        "type": "h2",
+        "text": "Images: usually most of the problem"
+      },
+      {
+        "type": "p",
+        "text": "The most common single fault is a 4MB photograph straight from a camera, displayed 400 pixels wide. Serve appropriately sized images, use modern formats, and lazy-load anything below the fold. This alone often halves load time."
+      },
+      {
+        "type": "h2",
+        "text": "Fonts: the invisible delay"
+      },
+      {
+        "type": "p",
+        "text": "Every custom font weight is another download blocking text from appearing. Two weights of one family is usually plenty. Preconnect to the font host and use a swap strategy so text renders immediately in a fallback."
+      },
+      {
+        "type": "h2",
+        "text": "Third-party scripts: death by a thousand tags"
+      },
+      {
+        "type": "p",
+        "text": "Analytics, chat widgets, pixels, heatmaps, review embeds. Each one is a separate connection and often more JavaScript than your entire site. Audit them honestly and remove the ones nobody has looked at in six months."
+      },
+      {
+        "type": "h2",
+        "text": "How to check"
+      },
+      {
+        "type": "p",
+        "text": "Run PageSpeed Insights and read the mobile score, not the desktop one. Then throttle your own browser to a slow connection and load the site. It is a sobering exercise and it takes two minutes."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "automating-the-work-nobody-wants-to-do",
+    "title": "Automating the work nobody wants to do",
+    "category": "Automation",
+    "readingTime": 5,
+    "date": "2025-12-02",
+    "author": "Your Name",
+    "excerpt": "Find the task someone does every week that produces nothing new. That is where automation pays for itself fastest.",
+    "accent": "#A855F7",
+    "tags": [
+      "automation",
+      "process",
+      "productivity"
+    ],
+    "content": [
+      {
+        "type": "p",
+        "text": "Automation projects go wrong when they start from the technology. They go right when they start from a specific person doing a specific tedious thing on a specific day of the week."
+      },
+      {
+        "type": "h2",
+        "text": "Look for transcription"
+      },
+      {
+        "type": "p",
+        "text": "Any time data moves from one place to another by being retyped, that is a candidate. Form to sheet, sheet to report, report to email. Nothing new is being created — value is only being lost through typos."
+      },
+      {
+        "type": "h2",
+        "text": "Look for the Monday morning ritual"
+      },
+      {
+        "type": "p",
+        "text": "Most businesses have a report someone rebuilds every week, the same way, from the same sources. A scheduled job can build it and email it before anyone arrives."
+      },
+      {
+        "type": "h2",
+        "text": "Count the real cost"
+      },
+      {
+        "type": "p",
+        "text": "Three hours a week is roughly 150 hours a year of someone’s attention, plus the errors that come from doing something repetitive and dull. That is the number to compare the build cost against."
+      },
+      {
+        "type": "h2",
+        "text": "Automate the reliable part first"
+      },
+      {
+        "type": "p",
+        "text": "Start with the steps that follow fixed rules, and leave judgement calls to people. Trying to automate the exceptions first is how automation projects stall — and how they lose the trust of the team using them."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "admin-panel-or-hardcoded-content",
+    "title": "Does your website really need an admin panel?",
+    "category": "Web development",
+    "readingTime": 4,
+    "date": "2025-11-14",
+    "author": "Your Name",
+    "excerpt": "An admin panel adds cost and surface area. Here is how to decide what genuinely needs to be editable.",
+    "accent": "#EC4899",
+    "tags": [
+      "cms",
+      "admin",
+      "scope"
+    ],
+    "content": [
+      {
+        "type": "p",
+        "text": "Making everything editable sounds like generosity. In practice an admin panel for content that never changes adds build cost, more code to secure, and one more place a site can be broken by accident."
+      },
+      {
+        "type": "h2",
+        "text": "Make editable what actually changes"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Portfolio and project entries — these grow constantly.",
+          "Blog posts and news.",
+          "Services and pricing.",
+          "Testimonials.",
+          "Contact details and social links.",
+          "Statistics and counters."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Leave in code what does not"
+      },
+      {
+        "type": "p",
+        "text": "Page layout, section order, legal text and the design system itself. These change once a year at most, and making them editable usually means giving someone the ability to break the site’s appearance with a stray value."
+      },
+      {
+        "type": "h2",
+        "text": "The middle ground"
+      },
+      {
+        "type": "p",
+        "text": "Site settings — logo, brand name, contact details, hero headline, social URLs — belong in a settings table even on a small site. They are cheap to make editable and awkward to change in code later, especially when the person who needs to change them is not a developer."
+      }
+    ]
+  }
+]

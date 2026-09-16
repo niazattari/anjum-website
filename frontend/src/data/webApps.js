@@ -1,0 +1,122 @@
+// ---------------------------------------------------------------------------
+// Google Sheets / Apps Script web app catalogue.
+// These describe systems that can be built to order. `isSample` records are
+// illustrative; replace or extend from the admin panel.
+// ---------------------------------------------------------------------------
+
+export const webApps = [
+  {
+    id: 1, slug: 'inventory-management', name: 'Inventory management', icon: 'Boxes',
+    accent: '#34D399', isSample: true,
+    problem: 'Stock counts live in a sheet several people edit at once, so rows get overwritten and nobody knows what changed.',
+    solution: 'A form-driven interface over the same sheet, with validation, per-user access and a full movement log.',
+    features: ['Stock in / stock out entry', 'Live stock levels', 'Low-stock alerts', 'Movement log with user and time', 'Per-branch access', 'Daily summary email'],
+    sheetsRole: 'Products, movements and branches stay in your Google Sheet as the database.',
+    scriptRole: 'Apps Script serves the interface, validates entries and writes rows in batches.',
+    buildTime: '1–2 weeks',
+  },
+  {
+    id: 2, slug: 'employee-management', name: 'Employee management', icon: 'Users',
+    accent: '#3B82F6', isSample: true,
+    problem: 'Employee details, documents and history are scattered across sheets, folders and someone’s inbox.',
+    solution: 'A single employee record with profile, documents, leave balance and history, readable by HR and no one else.',
+    features: ['Employee profiles', 'Document storage in Drive', 'Leave balances', 'Contract and renewal dates', 'Role-based access', 'Expiry reminders'],
+    sheetsRole: 'Employee master data and history rows stay in Sheets.',
+    scriptRole: 'Apps Script handles the interface, Drive uploads and reminder triggers.',
+    buildTime: '1–2 weeks',
+  },
+  {
+    id: 3, slug: 'payroll-system', name: 'Payroll system', icon: 'Wallet',
+    accent: '#22D3EE', isSample: true,
+    problem: 'Salaries, overtime and deductions are calculated by hand every month, and mistakes are only found after payment.',
+    solution: 'Payroll calculated from attendance data using configurable rules, with PDF payslips generated in one run.',
+    features: ['Configurable pay rules', 'Overtime and deductions', 'Monthly payroll run', 'PDF payslips', 'Email delivery', 'Payroll history'],
+    sheetsRole: 'Attendance, rates and payroll history remain in Sheets.',
+    scriptRole: 'Apps Script applies the rules, builds payslips and emails them.',
+    buildTime: '2–3 weeks',
+  },
+  {
+    id: 4, slug: 'attendance-system', name: 'Attendance system', icon: 'CalendarCheck',
+    accent: '#8B5CF6', isSample: true,
+    problem: 'Attendance is marked on paper and typed up at month end, so errors are impossible to trace back.',
+    solution: 'Daily marking through a web interface with shift rules, late tracking and monthly reports per employee.',
+    features: ['Daily marking by supervisor', 'Shift and late rules', 'Leave integration', 'Monthly reports', 'Employee history', 'Export to Excel'],
+    sheetsRole: 'The daily attendance grid stays in your Sheet.',
+    scriptRole: 'Apps Script provides the marking interface and report generation.',
+    buildTime: '1–2 weeks',
+  },
+  {
+    id: 5, slug: 'sales-management', name: 'Sales management', icon: 'TrendingUp',
+    accent: '#F59E0B', isSample: true,
+    problem: 'Sales are recorded inconsistently, so comparing periods or salespeople means rebuilding the numbers each time.',
+    solution: 'Structured sale entry with customer, product and salesperson, feeding a live summary that never needs rebuilding.',
+    features: ['Structured sale entry', 'Customer and product linking', 'Salesperson performance', 'Daily and monthly summaries', 'Target tracking', 'Export and print'],
+    sheetsRole: 'Sales rows and reference lists stay in Sheets.',
+    scriptRole: 'Apps Script validates entries and maintains summary sheets.',
+    buildTime: '1–2 weeks',
+  },
+  {
+    id: 6, slug: 'invoice-generator', name: 'Invoice generator', icon: 'FileText',
+    accent: '#EC4899', isSample: true,
+    problem: 'Invoices are made by copying a document and editing it, so numbering drifts and totals are occasionally wrong.',
+    solution: 'Branded PDF invoices generated from form data, numbered automatically, with payment status tracked alongside.',
+    features: ['Client and line-item entry', 'Automatic numbering', 'Tax and discount handling', 'Branded PDF output', 'Email delivery', 'Paid / unpaid / overdue tracking'],
+    sheetsRole: 'Clients, invoices and line items are stored in Sheets.',
+    scriptRole: 'Apps Script builds the PDF from a template and emails it.',
+    buildTime: '1–2 weeks',
+  },
+  {
+    id: 7, slug: 'customer-management', name: 'Customer management (CRM)', icon: 'Contact',
+    accent: '#14B8A6', isSample: true,
+    problem: 'Customer details and conversation history sit in phones, chats and memory, and leave with whoever handled them.',
+    solution: 'A shared customer record with contact details, interaction history, follow-up dates and assigned owner.',
+    features: ['Customer records', 'Interaction and call log', 'Follow-up reminders', 'Lead status pipeline', 'Assigned owner', 'Search and filtering'],
+    sheetsRole: 'Customer and interaction rows stay in Sheets.',
+    scriptRole: 'Apps Script serves the interface and sends follow-up reminders.',
+    buildTime: '2 weeks',
+  },
+  {
+    id: 8, slug: 'school-management', name: 'School management', icon: 'GraduationCap',
+    accent: '#6366F1', isSample: true,
+    problem: 'Students, attendance, fees and results are kept in separate registers that never reconcile.',
+    solution: 'One system linking student records to attendance, fee vouchers and results, with printable outputs.',
+    features: ['Student records', 'Daily attendance', 'Fee vouchers and tracking', 'Exam results and cards', 'Defaulter lists', 'Printable reports'],
+    sheetsRole: 'Students, fees and results stay in your Sheets workbook.',
+    scriptRole: 'Apps Script handles entry, calculation and PDF generation.',
+    buildTime: '3–4 weeks',
+  },
+  {
+    id: 9, slug: 'expense-tracker', name: 'Expense tracker', icon: 'Receipt',
+    accent: '#A855F7', isSample: true,
+    problem: 'Expenses are submitted as photos in a chat and reconciled long after anyone remembers what they were for.',
+    solution: 'Categorised expense entry with receipt upload, approval steps and live budget-versus-actual reporting.',
+    features: ['Categorised entry', 'Receipt upload to Drive', 'Approval workflow', 'Budget vs actual', 'Monthly reports', 'Over-budget alerts'],
+    sheetsRole: 'Expenses, categories and budgets live in Sheets.',
+    scriptRole: 'Apps Script manages uploads, approvals and reporting.',
+    buildTime: '1–2 weeks',
+  },
+  {
+    id: 10, slug: 'stock-management', name: 'Stock & order management', icon: 'PackageCheck',
+    accent: '#0EA5E9', isSample: true,
+    problem: 'Orders and stock are tracked separately, so items get sold that are not actually available.',
+    solution: 'Orders that decrement stock as they are confirmed, with a status pipeline and reorder alerts.',
+    features: ['Order entry with stock check', 'Automatic stock adjustment', 'Order status pipeline', 'Reorder level alerts', 'Supplier records', 'Order history'],
+    sheetsRole: 'Orders, stock and suppliers stay in Sheets.',
+    scriptRole: 'Apps Script enforces stock rules and maintains the pipeline.',
+    buildTime: '2 weeks',
+  },
+  {
+    id: 11, slug: 'reporting-dashboard', name: 'Reporting dashboard', icon: 'BarChart3',
+    accent: '#F472B6', isSample: true,
+    problem: 'The numbers exist in the sheet but pulling a report means rebuilding pivot tables every time.',
+    solution: 'A dashboard reading the same sheet, with filters, charts and scheduled email summaries.',
+    features: ['Live metric tiles', 'Charts and trends', 'Date range filtering', 'Scheduled email reports', 'Export to PDF', 'Shareable read-only view'],
+    sheetsRole: 'Source data stays exactly where it is.',
+    scriptRole: 'Apps Script aggregates on demand and sends scheduled summaries.',
+    buildTime: '1–2 weeks',
+  },
+];
+
+export const getWebAppBySlug = (slug) => webApps.find((w) => w.slug === slug);
+
+export default webApps;

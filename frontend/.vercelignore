@@ -1,0 +1,16 @@
+# Vercel's own ignore list covers node_modules, .git and .env*.local — but NOT
+# a plain .env. On this machine .env points VITE_API_BASE_URL at
+# http://localhost:8000/api for local development. Uploading that would make the
+# published site try to call the visitor's own computer for its content.
+.env
+.env.development
+.env.local
+
+# Built locally; Vercel builds its own.
+dist
+node_modules
+
+# Nothing here belongs on a web server.
+*.bat
+*.ps1
+setup-log.txt

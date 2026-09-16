@@ -1,0 +1,30 @@
+[
+  {
+    "id": "business-websites",
+    "name": "Business websites"
+  },
+  {
+    "id": "ecommerce",
+    "name": "E-commerce"
+  },
+  {
+    "id": "portfolio-websites",
+    "name": "Portfolio websites"
+  },
+  {
+    "id": "web-applications",
+    "name": "Web applications"
+  },
+  {
+    "id": "sheets-web-apps",
+    "name": "Google Sheets web apps"
+  },
+  {
+    "id": "dashboards",
+    "name": "Dashboards"
+  },
+  {
+    "id": "management-systems",
+    "name": "Management systems"
+  }
+]

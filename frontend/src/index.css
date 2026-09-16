@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ANJUM identity. Ink is the navy #1B2340 the logo is drawn in; brand and
+     accent are the first two capability-node colours, so buttons and links
+     belong to the same palette as the mark rather than sitting beside it. */
+  :root {
+    --c-bg: 249 250 252;
+    --c-surface: 255 255 255;
+    --c-elevated: 241 243 248;
+    --c-line: 27 35 64;
+    --c-ink: 27 35 64;
+    --c-muted: 91 98 112;
+    --c-faint: 139 143 153;
+    --c-brand: 47 111 237;
+    --c-brand-soft: 224 234 253;
+    --c-accent: 124 92 252;
+    --line-alpha: 0.12;
+    --grid-alpha: 0.045;
+  }
+
+  .dark {
+    --c-bg: 11 15 30;
+    --c-surface: 18 24 45;
+    --c-elevated: 27 35 64;
+    --c-line: 255 255 255;
+    --c-ink: 233 237 247;
+    --c-muted: 154 163 186;
+    --c-faint: 108 117 141;
+    --c-brand: 96 148 255;
+    --c-brand-soft: 27 48 100;
+    --c-accent: 160 137 255;
+    --line-alpha: 0.1;
+    --grid-alpha: 0.05;
+  }
+
+  * { border-color: rgb(var(--c-line) / var(--line-alpha)); }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    background-color: rgb(var(--c-bg));
+    color: rgb(var(--c-ink));
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Barlow Condensed reads best at 600 - at 700 the narrow counters close up. */
+  h1, h2, h3, h4 { font-family: theme('fontFamily.display'); font-weight: 600; }
+
+  /* Barlow's default body weight is a touch light against a navy ink. */
+  body { font-weight: 400; }
+
+  ::selection { background: rgb(var(--c-brand) / .3); }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--c-bg)); }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-line) / .18);
+    border-radius: 99px;
+    border: 3px solid rgb(var(--c-bg));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--c-line) / .3); }
+}
+
+@layer components {
+  .surface-card { @apply rounded-2xl border bg-surface/70 backdrop-blur-sm; }
+
+  .gradient-text {
+    background-image: linear-gradient(100deg, rgb(var(--c-brand)), rgb(var(--c-accent)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grid-backdrop {
+    background-image:
+      linear-gradient(to right, rgb(var(--c-line) / var(--grid-alpha)) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--c-line) / var(--grid-alpha)) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .glow-orb { position: absolute; border-radius: 9999px; filter: blur(90px); pointer-events: none; }
+
+  .skeleton { @apply relative overflow-hidden rounded-lg bg-elevated; }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg, transparent, rgb(var(--c-line) / .08), transparent);
+    animation: shimmer 1.6s infinite;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+@layer components {
+  /* ---- 3D tilt + cursor-following highlight -------------------------------
+     Driven entirely by CSS custom properties set in useTilt, so no React
+     re-render happens while the pointer moves. */
+  .tilt-3d {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    --active: 0;
+    --tilt-scale: 1;
+    transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry)) scale(var(--tilt-scale));
+    transform-style: preserve-3d;
+    transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease;
+    will-change: transform;
+  }
+  .tilt-3d::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: var(--active);
+    transition: opacity .35s ease;
+    background: radial-gradient(
+      420px circle at var(--mx) var(--my),
+      rgb(var(--c-brand) / .16),
+      transparent 62%
+    );
+  }
+  .tilt-layer { transform: translateZ(38px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tilt-3d { transform: none !important; }
+    .tilt-3d::after { opacity: 0 !important; }
+  }
+
+  /* ---- Aurora background ------------------------------------------------- */
+  .aurora-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(110px);
+    opacity: .5;
+    will-change: transform;
+  }
+  .dark .aurora-blob { opacity: .38; }
+
+  /* ---- Noise overlay: stops big gradients from banding ------------------- */
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- Shine sweep on primary buttons ------------------------------------ */
+  .shine::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(100deg, transparent 20%, rgb(255 255 255 / .28) 50%, transparent 80%);
+    transform: translateX(-130%);
+    transition: transform .7s cubic-bezier(.22,1,.36,1);
+    pointer-events: none;
+  }
+  .shine:hover::before { transform: translateX(130%); }
+  @media (prefers-reduced-motion: reduce) {
+    .shine::before { display: none; }
+  }
+
+  /* Pause the technology marquee while the pointer is over it. */
+  .marquee-track:hover { animation-play-state: paused; }
+}
+
+@layer components {
+  /* ---- ANJUM wordmark ----------------------------------------------------
+     The logotype is set in Barlow Condensed with wide tracking, which is what
+     separates it from an ordinary bold heading. */
+  .wordmark {
+    font-family: theme('fontFamily.display');
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    line-height: 1;
+  }
+  .wordmark-sub {
+    font-family: theme('fontFamily.display');
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ---- Capability hub ----------------------------------------------------
+     The orbit dashes crawl continuously; the wires brighten on hover. Both are
+     pure CSS so nothing re-renders while the pointer moves. */
+  .hub-orbit { animation: orbit-dash 9s linear infinite; }
+  .hub-wire { transition: stroke-opacity .4s ease, stroke-width .4s ease; }
+  .hub:hover .hub-wire { stroke-opacity: .75; stroke-width: 2.6; }
+  .hub-node { transition: transform .32s cubic-bezier(.2,.7,.2,1), box-shadow .32s ease; }
+  .hub-node:hover { transform: translateY(-6px) scale(1.06); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hub-orbit { animation: none; }
+    .hub-node:hover { transform: none; }
+  }
+}

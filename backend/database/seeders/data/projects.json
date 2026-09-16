@@ -1,0 +1,662 @@
+[
+  {
+    "id": 13,
+    "slug": "edutrack-pro",
+    "title": "EduTrack Pro — student grade management",
+    "category": "dashboards",
+    "categoryName": "Dashboards",
+    "clientType": "Schools and academies",
+    "year": 2026,
+    "status": "In development",
+    "featured": true,
+    "isSample": false,
+    "cover": "/projects/edutrack/cover.webp",
+    "visual": {
+      "kind": "dashboard",
+      "from": "#8B5CF6",
+      "to": "#22D3EE"
+    },
+    "short": "A SaaS-style grading dashboard for schools: marks entry, automatic grading, live merit rankings and analytics — with Google Sheets as the database.",
+    "problem": "Schools keep marks in spreadsheets, then rebuild the same work by hand every term: totals, percentages, grades, merit lists and report cards. The numbers already exist; what is missing is anything that turns them into an answer. Ranking 1,200 students means sorting a sheet and hoping nobody typed over a formula.",
+    "solution": "A dashboard that sits on top of the school’s existing Google Sheet. Marks are entered through a validated form and the grade, percentage and rank recalculate instantly, writing straight back to the sheet. Rankings, subject analytics and the merit list are generated from live data rather than rebuilt each term.",
+    "features": [
+      "Quick marks entry with grade and percentage calculated as you type",
+      "Auto-graded student records, sortable and searchable across the full roster",
+      "Dashboard overview: total students, class average, pass rate, A+ achievers",
+      "Subject-wise class averages and grade distribution",
+      "Performance trend across the academic year, compared to the previous cohort",
+      "Subject × class heatmap identifying weak areas per section",
+      "Automated insights flagging weak subjects and students needing attention",
+      "Merit list with podium view, tie-breaking by total score",
+      "Report cards and CSV / PDF export",
+      "Live two-way sync with Google Sheets"
+    ],
+    "technologies": [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Chart.js",
+      "Google Sheets API"
+    ],
+    "challenges": "Keeping the interface responsive while every keystroke triggers a recalculation and a write back to Sheets. Marks are held in local state and reconciled with the sheet in batches, so entry never blocks on the network, and rank recalculation runs over the cached roster rather than re-reading the spreadsheet.",
+    "results": [
+      "Grade, percentage and rank calculated on entry instead of at term end",
+      "Merit list and subject analytics generated from live data",
+      "The school keeps its data in its own Google account"
+    ],
+    "duration": "In active development",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      {
+        "src": "/projects/edutrack/dashboard.webp",
+        "caption": "Dashboard overview — KPIs, subject averages and grade distribution"
+      },
+      {
+        "src": "/projects/edutrack/students.webp",
+        "caption": "Student records and quick marks entry, auto-saved to Sheets"
+      },
+      {
+        "src": "/projects/edutrack/analytics.webp",
+        "caption": "Performance analytics — year trend, heatmap and automated insights"
+      },
+      {
+        "src": "/projects/edutrack/rankings.webp",
+        "caption": "Rankings — term toppers podium and the full merit list"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "slug": "noor-accessories-store",
+    "title": "Fashion jewellery online store",
+    "category": "ecommerce",
+    "categoryName": "E-commerce",
+    "clientType": "Online fashion retailer",
+    "year": 2025,
+    "status": "Live",
+    "featured": true,
+    "isSample": true,
+    "visual": {
+      "kind": "storefront",
+      "from": "#F472B6",
+      "to": "#A855F7"
+    },
+    "short": "A storefront and order system for a jewellery brand selling through social media.",
+    "problem": "Orders arrived through Instagram DMs and WhatsApp messages, were copied into a notebook, and were regularly lost or duplicated. There was no product catalogue customers could browse, and no reliable record of what had been shipped.",
+    "solution": "A storefront with a full product catalogue, cart and checkout, backed by an admin panel where every order moves through a clear status pipeline. Stock decrements automatically on order, and each new order triggers a WhatsApp notification so nothing sits unnoticed.",
+    "features": [
+      "Product catalogue with categories, variants and stock levels",
+      "Cart and guest checkout",
+      "Order pipeline: new → confirmed → packed → shipped → delivered",
+      "Customer accounts with order history",
+      "Discount codes and shipping rules",
+      "Low-stock alerts and sales reporting",
+      "WhatsApp notification on every new order"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "challenges": "Migrating a year of order history out of chat threads and a spreadsheet into a clean database without losing customer records, and keeping checkout usable on low-end phones with slow connections.",
+    "results": [
+      "Order details captured once, at the point of sale",
+      "Stock and order status visible in one place",
+      "Checkout usable on 3G and entry-level devices"
+    ],
+    "duration": "5 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Storefront and catalogue",
+      "Product detail page",
+      "Cart and checkout",
+      "Admin order pipeline"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "inventory-management-sheets-app",
+    "title": "Inventory management web app",
+    "category": "sheets-web-apps",
+    "categoryName": "Google Sheets web apps",
+    "clientType": "Wholesale distributor",
+    "year": 2025,
+    "status": "Live",
+    "featured": true,
+    "isSample": true,
+    "visual": {
+      "kind": "table",
+      "from": "#34D399",
+      "to": "#0EA5E9"
+    },
+    "short": "A Google Apps Script interface over an existing stock sheet used by five branch staff.",
+    "problem": "Stock lived in a Google Sheet that five people edited directly. Rows were overwritten, formulas were deleted by accident, and nobody could tell who had changed a quantity or when.",
+    "solution": "The sheet stayed exactly where it was; a web app went on top of it. Staff now use a form-driven interface with validation and role-based access, and every movement is written to a log with a user and timestamp.",
+    "features": [
+      "Stock in / stock out entry with validation",
+      "Live stock levels with low-stock highlighting",
+      "Per-branch access control",
+      "Movement log with user and timestamp",
+      "Search and filter across thousands of rows",
+      "Scheduled daily stock summary email",
+      "Data stays entirely in the client Google Sheet"
+    ],
+    "technologies": [
+      "Google Apps Script",
+      "Google Sheets",
+      "HTML5",
+      "JavaScript"
+    ],
+    "challenges": "Apps Script execution quotas meant naive per-row reads were far too slow over a large sheet. Batching reads and caching lookup tables brought interactions back under a second.",
+    "results": [
+      "Direct sheet editing eliminated for day-to-day use",
+      "Every stock movement attributable to a person",
+      "Daily summary replaces manual end-of-day counting"
+    ],
+    "duration": "2 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Stock dashboard",
+      "Entry form",
+      "Movement log",
+      "Daily summary email"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "construction-company-website",
+    "title": "Construction company website",
+    "category": "business-websites",
+    "categoryName": "Business websites",
+    "clientType": "Construction and contracting firm",
+    "year": 2025,
+    "status": "Live",
+    "featured": true,
+    "isSample": true,
+    "visual": {
+      "kind": "landing",
+      "from": "#F59E0B",
+      "to": "#EF4444"
+    },
+    "short": "A corporate site with a project gallery and a structured quote request flow.",
+    "problem": "The firm had strong completed work and no way to show it. Enquiries came by phone with no detail, so every quote required three follow-up calls before anything could be estimated.",
+    "solution": "A corporate website with a filterable project gallery and a structured quote form that captures project type, scale, location and timeline up front. Enquiries land in an admin panel with a status pipeline.",
+    "features": [
+      "Project gallery filtered by type and scale",
+      "Service pages for each contracting category",
+      "Structured multi-field quote request form",
+      "Enquiry pipeline in the admin panel",
+      "Team and certification sections",
+      "Local SEO and structured data"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "challenges": "Site galleries were heavy with large photographs. Responsive image sizes and lazy loading kept the gallery under a two-second load on mobile.",
+    "results": [
+      "Enquiries arrive with the detail needed to quote",
+      "Completed work presented in one browsable place",
+      "Quote requests tracked rather than lost in call logs"
+    ],
+    "duration": "3 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Homepage",
+      "Project gallery",
+      "Quote request form",
+      "Admin enquiry pipeline"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "school-management-system",
+    "title": "School management system",
+    "category": "management-systems",
+    "categoryName": "Management systems",
+    "clientType": "Private school, three campuses",
+    "year": 2024,
+    "status": "Live",
+    "featured": true,
+    "isSample": true,
+    "visual": {
+      "kind": "dashboard",
+      "from": "#6366F1",
+      "to": "#22D3EE"
+    },
+    "short": "Students, attendance, fees and results across three campuses in one system.",
+    "problem": "Each campus kept its own registers and fee books. Consolidating anything for the whole school meant a week of manual collation, and fee defaulters were usually spotted a month late.",
+    "solution": "A single system covering student records, daily attendance, fee vouchers and exam results, with campus-scoped roles so staff see only their own campus while administration sees everything.",
+    "features": [
+      "Student records with guardian details and documents",
+      "Daily attendance with monthly reports",
+      "Fee vouchers, payment tracking and defaulter lists",
+      "Exam entry, grading and printable result cards",
+      "Campus-scoped roles and permissions",
+      "Consolidated cross-campus reporting",
+      "PDF generation for vouchers and results"
+    ],
+    "technologies": [
+      "Laravel",
+      "MySQL",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
+    "challenges": "Migrating several years of records from inconsistent spreadsheets required a reconciliation step and a review screen before anything was committed to the live database.",
+    "results": [
+      "Cross-campus reporting available on demand",
+      "Fee position visible daily instead of monthly",
+      "Result cards generated rather than typed"
+    ],
+    "duration": "10 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Admin dashboard",
+      "Student record",
+      "Attendance register",
+      "Fee voucher PDF"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "employee-attendance-payroll-app",
+    "title": "Attendance & payroll web app",
+    "category": "sheets-web-apps",
+    "categoryName": "Google Sheets web apps",
+    "clientType": "Manufacturing unit, 60 staff",
+    "year": 2025,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "table",
+      "from": "#22D3EE",
+      "to": "#3B82F6"
+    },
+    "short": "Attendance capture and payroll calculation on top of Google Sheets.",
+    "problem": "Attendance was marked on paper and typed into a spreadsheet at month end. Overtime was calculated by hand, and payroll disputes were common because nobody could reconstruct a day.",
+    "solution": "A web app for daily attendance marking, with shift rules, overtime and deductions calculated automatically. Payslips generate as PDFs from the same sheet the accountant already used.",
+    "features": [
+      "Daily attendance marking by supervisor",
+      "Shift, overtime and late rules applied automatically",
+      "Leave balance tracking",
+      "Monthly payroll calculation",
+      "PDF payslip generation",
+      "Per-employee attendance history"
+    ],
+    "technologies": [
+      "Google Apps Script",
+      "Google Sheets",
+      "JavaScript",
+      "HTML5"
+    ],
+    "challenges": "Payroll rules differed by employee category. Rules were moved into a configuration sheet so the client can change rates without touching code.",
+    "results": [
+      "Month-end payroll reduced from days to a single run",
+      "Overtime calculated consistently",
+      "Any past day reconstructable from the log"
+    ],
+    "duration": "3 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Attendance marking",
+      "Payroll run",
+      "Payslip PDF",
+      "Rules configuration"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "sales-analytics-dashboard",
+    "title": "Sales analytics dashboard",
+    "category": "dashboards",
+    "categoryName": "Dashboards",
+    "clientType": "Multi-branch retail chain",
+    "year": 2025,
+    "status": "Live",
+    "featured": true,
+    "isSample": true,
+    "visual": {
+      "kind": "charts",
+      "from": "#3B82F6",
+      "to": "#8B5CF6"
+    },
+    "short": "Branch, product and trend reporting pulled into one live dashboard.",
+    "problem": "Each branch emailed a spreadsheet weekly. By the time the numbers were combined they were a week old, and comparing branches or spotting a declining product line was guesswork.",
+    "solution": "A dashboard reading directly from the sales database, with branch comparison, product performance, trend charts and exports. Managers see their own branch; head office sees all of them.",
+    "features": [
+      "Live revenue, orders and average-order-value tiles",
+      "Branch comparison view",
+      "Product and category performance ranking",
+      "Trend charts with period-over-period comparison",
+      "Date range filtering and Excel export",
+      "Role-scoped access by branch"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "REST APIs"
+    ],
+    "challenges": "Aggregating several years of transactions on every page load was slow. Pre-aggregated summary tables refreshed on a schedule brought queries under 200ms.",
+    "results": [
+      "Reporting lag reduced from a week to live",
+      "Branch performance comparable at a glance",
+      "Weekly spreadsheet collation eliminated"
+    ],
+    "duration": "4 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Overview tiles",
+      "Branch comparison",
+      "Product ranking",
+      "Trend charts"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "photographer-portfolio",
+    "title": "Photographer portfolio",
+    "category": "portfolio-websites",
+    "categoryName": "Portfolio websites",
+    "clientType": "Wedding and event photographer",
+    "year": 2024,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "gallery",
+      "from": "#0EA5E9",
+      "to": "#14B8A6"
+    },
+    "short": "An image-led portfolio with booking enquiries and package pages.",
+    "problem": "The work lived on social media, where it was compressed, buried and impossible to organise by type. Enquiries arrived without dates, locations or budget.",
+    "solution": "A portfolio site with full-resolution galleries organised by shoot type, package pages with clear inclusions, and a booking form that captures event date, venue and package interest.",
+    "features": [
+      "Galleries by category with lightbox viewing",
+      "Optimised full-resolution image delivery",
+      "Package and pricing pages",
+      "Booking enquiry form with date and venue",
+      "Availability calendar",
+      "Client testimonial section"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "challenges": "Large images versus load time. Responsive image sets, modern formats and progressive loading kept galleries fast without visibly degrading quality.",
+    "results": [
+      "Work presented at full quality, organised by type",
+      "Enquiries include date, venue and package",
+      "Packages answer pricing questions before contact"
+    ],
+    "duration": "2 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Homepage",
+      "Gallery view",
+      "Packages",
+      "Booking form"
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "clinic-appointment-system",
+    "title": "Clinic appointment system",
+    "category": "web-applications",
+    "categoryName": "Web applications",
+    "clientType": "Multi-doctor clinic",
+    "year": 2024,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "app",
+      "from": "#14B8A6",
+      "to": "#3B82F6"
+    },
+    "short": "Online booking, doctor schedules and automated appointment reminders.",
+    "problem": "Appointments were booked by phone into a paper diary. Double bookings were routine, and no-shows were high because nobody was reminded.",
+    "solution": "An online booking system with per-doctor schedules and real-time slot availability, plus automatic WhatsApp and email reminders. Reception keeps a single day view of every doctor.",
+    "features": [
+      "Online booking with live slot availability",
+      "Per-doctor schedules and leave management",
+      "Automatic appointment reminders",
+      "Reception day view across all doctors",
+      "Patient record and visit history",
+      "Rescheduling and cancellation flow"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "REST APIs"
+    ],
+    "challenges": "Concurrent bookings for the same slot. Database-level locking on slot reservation removed the race condition entirely.",
+    "results": [
+      "Double bookings eliminated",
+      "Reminders sent automatically before every appointment",
+      "Reception works from one screen instead of a diary"
+    ],
+    "duration": "6 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Booking flow",
+      "Doctor schedule",
+      "Reception day view",
+      "Reminder message"
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "invoice-generator-web-app",
+    "title": "Invoice generator",
+    "category": "sheets-web-apps",
+    "categoryName": "Google Sheets web apps",
+    "clientType": "Services consultancy",
+    "year": 2025,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "document",
+      "from": "#A855F7",
+      "to": "#EC4899"
+    },
+    "short": "Branded PDF invoices generated from a sheet, with payment tracking.",
+    "problem": "Invoices were built by duplicating a document, editing it by hand and exporting a PDF. Numbering drifted, totals were occasionally wrong, and nobody could say what was outstanding.",
+    "solution": "A web app that generates branded PDF invoices from client and line-item data, with automatic sequential numbering, tax calculation and a payment status view showing exactly what is outstanding.",
+    "features": [
+      "Client and line-item entry with automatic totals",
+      "Sequential invoice numbering",
+      "Tax and discount handling",
+      "Branded PDF generation",
+      "Email delivery to the client",
+      "Paid / unpaid / overdue tracking",
+      "Outstanding balance summary"
+    ],
+    "technologies": [
+      "Google Apps Script",
+      "Google Sheets",
+      "HTML5",
+      "JavaScript"
+    ],
+    "challenges": "Getting PDF output to match the existing brand layout precisely, including multi-page invoices with repeating headers.",
+    "results": [
+      "Invoice creation reduced to a single form",
+      "Numbering and totals consistent by construction",
+      "Outstanding balances visible at any time"
+    ],
+    "duration": "10 days",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Invoice form",
+      "Generated PDF",
+      "Payment tracking",
+      "Outstanding summary"
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "real-estate-listing-platform",
+    "title": "Real estate listing platform",
+    "category": "web-applications",
+    "categoryName": "Web applications",
+    "clientType": "Property agency",
+    "year": 2024,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "app",
+      "from": "#F59E0B",
+      "to": "#84CC16"
+    },
+    "short": "Property listings with map search, saved searches and agent management.",
+    "problem": "Listings were spread across classified sites and a Facebook page, each with different details. Buyers phoned to ask questions the listing should have answered.",
+    "solution": "A listing platform with structured property data, map-based search, filters on every attribute that matters, and per-agent portfolios. Buyers save searches and get alerts on new matches.",
+    "features": [
+      "Structured listings with full attribute set",
+      "Map-based and filtered search",
+      "Image galleries and floor plans",
+      "Saved searches with new-match alerts",
+      "Agent profiles and assigned listings",
+      "Enquiry routing to the listing agent"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "challenges": "Map performance with several hundred pins. Clustering and viewport-bounded queries kept panning smooth on mobile.",
+    "results": [
+      "One authoritative listing per property",
+      "Buyers self-serve details previously asked by phone",
+      "Enquiries routed to the right agent automatically"
+    ],
+    "duration": "7 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Search results",
+      "Map view",
+      "Property detail",
+      "Agent dashboard"
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "restaurant-website-ordering",
+    "title": "Restaurant website with ordering",
+    "category": "business-websites",
+    "categoryName": "Business websites",
+    "clientType": "Restaurant, two locations",
+    "year": 2025,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "landing",
+      "from": "#EF4444",
+      "to": "#F59E0B"
+    },
+    "short": "Menu, table reservation and direct ordering without marketplace commission.",
+    "problem": "All online orders came through delivery marketplaces taking a substantial commission, and the restaurant had no direct relationship with its own customers.",
+    "solution": "A website with the full menu, direct ordering for pickup and delivery, and table reservations. Orders print to the kitchen and notify staff by WhatsApp.",
+    "features": [
+      "Menu with categories, options and photos",
+      "Direct ordering for pickup and delivery",
+      "Table reservation with slot availability",
+      "Kitchen order notifications",
+      "Location pages for both branches",
+      "Order status tracking for customers"
+    ],
+    "technologies": [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "challenges": "Keeping menu availability in sync between branches during service, so a sold-out item disappears immediately for that location only.",
+    "results": [
+      "A commission-free ordering channel",
+      "Direct customer contact details retained",
+      "Reservations and orders in one system"
+    ],
+    "duration": "4 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Homepage",
+      "Menu",
+      "Order flow",
+      "Reservation"
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "expense-tracker-dashboard",
+    "title": "Expense tracker & reporting",
+    "category": "dashboards",
+    "categoryName": "Dashboards",
+    "clientType": "Small business, multi-department",
+    "year": 2024,
+    "status": "Live",
+    "featured": false,
+    "isSample": true,
+    "visual": {
+      "kind": "charts",
+      "from": "#8B5CF6",
+      "to": "#22D3EE"
+    },
+    "short": "Departmental expense capture with approval flow and budget reporting.",
+    "problem": "Expenses were submitted as photographed receipts in a group chat and reconciled once a quarter, by which point nobody remembered what half of them were for.",
+    "solution": "An expense system with categorised entry, receipt upload, a two-step approval flow and live budget-versus-actual reporting per department.",
+    "features": [
+      "Categorised expense entry with receipt upload",
+      "Two-step approval workflow",
+      "Budget versus actual per department",
+      "Monthly and quarterly reporting",
+      "Excel and PDF export",
+      "Over-budget alerts"
+    ],
+    "technologies": [
+      "Laravel",
+      "MySQL",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
+    "challenges": "Receipt images of wildly varying size. Server-side compression and thumbnailing kept storage and page loads reasonable.",
+    "results": [
+      "Expenses captured at the time they occur",
+      "Approvals tracked instead of assumed",
+      "Budget position visible during the month"
+    ],
+    "duration": "3 weeks",
+    "liveUrl": null,
+    "githubUrl": null,
+    "gallery": [
+      "Expense entry",
+      "Approval queue",
+      "Budget report",
+      "Export"
+    ]
+  }
+]

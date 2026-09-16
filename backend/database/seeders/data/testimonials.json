@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "isSample": true,
+    "name": "Placeholder name",
+    "position": "Operations manager",
+    "company": "Sample Retail Co.",
+    "rating": 5,
+    "project": "Inventory management web app",
+    "quote": "Placeholder testimonial text. Replace this with a real quote from a client, in their own words, describing the problem they had and what changed after the project."
+  },
+  {
+    "id": 2,
+    "isSample": true,
+    "name": "Placeholder name",
+    "position": "Founder",
+    "company": "Sample Fashion Brand",
+    "rating": 5,
+    "project": "E-commerce store",
+    "quote": "Placeholder testimonial text. A good real testimonial is specific: what was difficult before, what was delivered, and one concrete result worth mentioning."
+  },
+  {
+    "id": 3,
+    "isSample": true,
+    "name": "Placeholder name",
+    "position": "Director",
+    "company": "Sample Contracting Ltd.",
+    "rating": 5,
+    "project": "Business website",
+    "quote": "Placeholder testimonial text. Ask clients for a sentence or two after handover, while the difference is still fresh, and add them here from the admin panel."
+  },
+  {
+    "id": 4,
+    "isSample": true,
+    "name": "Placeholder name",
+    "position": "Administrator",
+    "company": "Sample School",
+    "rating": 5,
+    "project": "School management system",
+    "quote": "Placeholder testimonial text. Include the person’s role and organisation — an attributed quote carries far more weight than an anonymous one."
+  }
+]

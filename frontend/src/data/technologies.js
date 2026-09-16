@@ -1,0 +1,25 @@
+// Technology strip + About-page skill grid.
+//
+// `logo` is the filename this technology looks for in /public/logos/. Drop the
+// official SVG there (see public/logos/README.md) and it appears automatically;
+// until then each entry renders a branded monogram tile in its own colour.
+export const technologies = [
+  { id: 1,  name: 'React',              slug: 'react',        logo: 'react.svg',        color: '#61DAFB', group: 'Frontend',   level: 90, featured: true },
+  { id: 2,  name: 'JavaScript',         slug: 'javascript',   logo: 'javascript.svg',   color: '#F7DF1E', group: 'Frontend',   level: 92, featured: true },
+  { id: 3,  name: 'TypeScript',         slug: 'typescript',   logo: 'typescript.svg',   color: '#3178C6', group: 'Frontend',   level: 74, featured: true },
+  { id: 4,  name: 'Tailwind CSS',       slug: 'tailwind',     logo: 'tailwind.svg',     color: '#38BDF8', group: 'Frontend',   level: 88, featured: true },
+  { id: 5,  name: 'HTML5',              slug: 'html5',        logo: 'html5.svg',        color: '#E34F26', group: 'Frontend',   level: 95, featured: true },
+  { id: 6,  name: 'CSS3',               slug: 'css3',         logo: 'css3.svg',         color: '#1572B6', group: 'Frontend',   level: 92, featured: true },
+  { id: 7,  name: 'Vite',               slug: 'vite',         logo: 'vite.svg',         color: '#A855F7', group: 'Frontend',   level: 80, featured: true },
+  { id: 8,  name: 'Laravel',            slug: 'laravel',      logo: 'laravel.svg',      color: '#FF2D20', group: 'Backend',    level: 85, featured: true },
+  { id: 9,  name: 'PHP',                slug: 'php',          logo: 'php.svg',          color: '#777BB4', group: 'Backend',    level: 85, featured: true },
+  { id: 10, name: 'Node.js',            slug: 'nodejs',       logo: 'nodejs.svg',       color: '#5FA04E', group: 'Backend',    level: 75, featured: true },
+  { id: 11, name: 'REST APIs',          slug: 'rest',         logo: 'rest.svg',         color: '#22D3EE', group: 'Backend',    level: 88, featured: false },
+  { id: 12, name: 'MySQL',              slug: 'mysql',        logo: 'mysql.svg',        color: '#4479A1', group: 'Database',   level: 84, featured: true },
+  { id: 13, name: 'Google Apps Script', slug: 'apps-script',  logo: 'apps-script.svg',  color: '#4285F4', group: 'Automation', level: 90, featured: true },
+  { id: 14, name: 'Google Sheets',      slug: 'sheets',       logo: 'sheets.svg',       color: '#34A853', group: 'Automation', level: 88, featured: true },
+  { id: 15, name: 'Chart.js',           slug: 'chartjs',      logo: 'chartjs.svg',      color: '#FF6384', group: 'Frontend',   level: 78, featured: true },
+  { id: 16, name: 'Git',                slug: 'git',          logo: 'git.svg',          color: '#F05032', group: 'Tooling',    level: 82, featured: false },
+];
+
+export default technologies;
